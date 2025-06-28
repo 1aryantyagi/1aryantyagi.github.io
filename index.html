@@ -9,7 +9,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --primary: #6366f1;
@@ -25,19 +24,6 @@
             --bg: #0f172a;
             --header-height: 80px;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        [data-theme="light"] {
-            --primary: #4f46e5;
-            --primary-dark: #4338ca;
-            --secondary: #f1f5f9;
-            --accent: #7c3aed;
-            --light: #0f172a;
-            --dark: #f8fafc;
-            --gray: #475569;
-            --card-bg: rgba(241, 245, 249, 0.7);
-            --text: #1e293b;
-            --bg: #f8fafc;
         }
 
         * {
@@ -488,6 +474,8 @@
             transition: var(--transition);
             border: 1px solid rgba(100, 116, 139, 0.2);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -504,10 +492,29 @@
             justify-content: center;
             font-size: 3rem;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+        }
+
+        .project-img i {
+            z-index: 1;
         }
 
         .project-content {
             padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-content h3 {
@@ -519,6 +526,7 @@
         .project-content p {
             margin-bottom: 1rem;
             color: var(--text);
+            flex-grow: 1;
         }
 
         .tech-stack {
@@ -534,6 +542,11 @@
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.85rem;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 0.8rem;
         }
 
         /* Contact Page */
@@ -675,6 +688,20 @@
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Project badges */
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(16, 185, 129, 0.9);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
         }
 
         /* Responsive Design */
@@ -866,7 +893,36 @@
 
             <div style="background: var(--card-bg); border-radius: 16px; padding: 2rem; margin-top: 3rem;">
                 <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">Skill Proficiency</h3>
-                <canvas id="skillsChart" height="350"></canvas>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem;">
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;">Python <span style="float: right;">95%</span></h4>
+                        <div style="height: 8px; background: rgba(100, 116, 139, 0.2); border-radius: 4px;">
+                            <div style="height: 100%; width: 95%; background: var(--primary); border-radius: 4px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;">Deep Learning <span style="float: right;">90%</span></h4>
+                        <div style="height: 8px; background: rgba(100, 116, 139, 0.2); border-radius: 4px;">
+                            <div style="height: 100%; width: 90%; background: var(--primary); border-radius: 4px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;">LangChain <span style="float: right;">85%</span></h4>
+                        <div style="height: 8px; background: rgba(100, 116, 139, 0.2); border-radius: 4px;">
+                            <div style="height: 100%; width: 85%; background: var(--primary); border-radius: 4px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;">Signal Processing <span style="float: right;">88%</span></h4>
+                        <div style="height: 8px; background: rgba(100, 116, 139, 0.2); border-radius: 4px;">
+                            <div style="height: 100%; width: 88%; background: var(--primary); border-radius: 4px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -878,7 +934,7 @@
             <div class="timeline">
                 <div class="timeline-item animate-on-scroll">
                     <div class="timeline-content">
-                        <h3>Drema AI</h3>
+                        <h3>Drama AI</h3>
                         <h4>AIML Intern | Jan 2025 - Present</h4>
                         <p>Noida, Uttar Pradesh, India</p>
                         <p><strong>AI-Powered Job Application Automation Tool</strong></p>
@@ -888,15 +944,14 @@
                             <li>Engineered auto-fill modules with Playwright to handle complex form submissions</li>
                             <li>Integrated resume parsing using PyMuPDF and GenAI for skill extraction</li>
                         </ul>
-                        <p><strong>Tech Stack:</strong> Python, Langchain, OpenAI API, Selenium, Playwright, Gen AI,
-                            BeautifulSoup</p>
+                        <p><strong>Tech Stack:</strong> Python, Langchain, OpenAI API, Selenium, Playwright, Gen AI</p>
                     </div>
                 </div>
 
                 <div class="timeline-item animate-on-scroll">
                     <div class="timeline-content">
                         <h3>FuturixAI & Quantum Works</h3>
-                        <h4>AI Developer Intern | Jul 2024 - Aug 2024</h4>
+                        <h4>AI Developer Intern | Jul 2024 - Sep 2024</h4>
                         <p>India</p>
                         <ul>
                             <li>Developed Hindi chatbot using Unsloth LLaMA 3 model</li>
@@ -910,7 +965,7 @@
                 <div class="timeline-item animate-on-scroll">
                     <div class="timeline-content">
                         <h3>SkyBrain Neurotech</h3>
-                        <h4>Machine Learning Intern | Dec 2023 - May 2024</h4>
+                        <h4>Machine Learning Intern | Dec 2023 - Mar 2024</h4>
                         <p>India</p>
                         <ul>
                             <li>Advanced emotion recognition using EEG data and BCI technology</li>
@@ -946,105 +1001,80 @@
                 <div class="project-card animate-on-scroll">
                     <div class="project-img">
                         <i class="fas fa-pizza-slice"></i>
+                        <span class="project-badge">Featured</span>
                     </div>
                     <div class="project-content">
                         <h3>PizzaOnCall</h3>
                         <p>Web and voice-based pizza ordering application that allows users to browse menu, customize
-                            orders, and place them seamlessly.</p>
+                            orders, and place them seamlessly. Integrated with real-time inventory and payment
+                            processing.</p>
                         <div class="tech-stack">
                             <span class="tech-item">Python</span>
-                            <span class="tech-item">Web</span>
-                            <span class="tech-item">Voice</span>
+                            <span class="tech-item">Flask</span>
+                            <span class="tech-item">Voice Recognition</span>
+                            <span class="tech-item">React.js</span>
                         </div>
-                        <a href="https://github.com/1aryantyagi/PizzaOnCall" class="btn">View Project</a>
+                        <div class="project-actions">
+                            <a href="https://github.com/1aryantyagi/PizzaOnCall" class="btn">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                            <a href="#" class="btn btn-outline">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="project-card animate-on-scroll">
                     <div class="project-img">
                         <i class="fas fa-robot"></i>
+                        <span class="project-badge">AI Automation</span>
                     </div>
                     <div class="project-content">
-                        <h3>AI-Powered Job Application Tool</h3>
+                        <h3>AI Job Application System</h3>
                         <p>Automated job application system using Langchain and GenAI to match resumes with relevant
-                            positions and auto-fill applications.</p>
+                            positions. Extracts top job roles from resumes and auto-fills applications on multiple
+                            platforms.</p>
                         <div class="tech-stack">
                             <span class="tech-item">Langchain</span>
                             <span class="tech-item">OpenAI</span>
                             <span class="tech-item">Selenium</span>
                             <span class="tech-item">Playwright</span>
                         </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-img">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Hindi Chatbot with LLaMA 3</h3>
-                        <p>Conversational agent that understands and responds accurately in Hindi using Unsloth LLaMA 3
-                            model.</p>
-                        <div class="tech-stack">
-                            <span class="tech-item">LLaMA 3</span>
-                            <span class="tech-item">NLP</span>
-                            <span class="tech-item">GenAI</span>
+                        <div class="project-actions">
+                            <a href="#" class="btn">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                            <a href="#" class="btn btn-outline">
+                                <i class="fas fa-external-link-alt"></i> Case Study
+                            </a>
                         </div>
-                        <a href="#" class="btn">View Project</a>
                     </div>
                 </div>
 
                 <div class="project-card animate-on-scroll">
                     <div class="project-img">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="project-badge">EdTech</span>
                     </div>
                     <div class="project-content">
-                        <h3>EEG Emotion Recognition</h3>
-                        <p>BCI technology using EEG data for emotion recognition with 96% accuracy, deployed via Flask.
-                        </p>
+                        <h3>Personal AI Tutor</h3>
+                        <p>AI-powered tutor that generates customized questions based on study materials. Supports PDF
+                            and YouTube content, creating adaptive learning paths for exam preparation.</p>
                         <div class="tech-stack">
-                            <span class="tech-item">EEG</span>
-                            <span class="tech-item">BCI</span>
-                            <span class="tech-item">SVM</span>
+                            <span class="tech-item">GenAI</span>
+                            <span class="tech-item">NLP</span>
+                            <span class="tech-item">Langchain</span>
                             <span class="tech-item">Flask</span>
                         </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-img">
-                        <i class="fas fa-mail-bulk"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Business Outreach Email Generator</h3>
-                        <p>GenAI-powered email generation system for cold outreach and B2B partnerships with AWS SES
-                            integration.</p>
-                        <div class="tech-stack">
-                            <span class="tech-item">GenAI</span>
-                            <span class="tech-item">AWS SES</span>
-                            <span class="tech-item">FastAPI</span>
-                            <span class="tech-item">PostgreSQL</span>
+                        <div class="project-actions">
+                            <a href="#" class="btn">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                            <a href="#" class="btn btn-outline">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
                         </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-img">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>AI Sales Bot</h3>
-                        <p>Web-based AI-powered chatbot designed to streamline sales process by engaging customers and
-                            analyzing needs.</p>
-                        <div class="tech-stack">
-                            <span class="tech-item">AI Chatbot</span>
-                            <span class="tech-item">Sales</span>
-                            <span class="tech-item">NLP</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
                     </div>
                 </div>
             </div>
@@ -1074,7 +1104,7 @@
                         </div>
                         <div class="contact-text">
                             <h4>LinkedIn</h4>
-                            <p>https://www.linkedin.com/in/aryan-tyagi-3b57101b9/</p>
+                            <p>linkedin.com/in/aryan-tyagi-3b57101b9</p>
                         </div>
                     </div>
 
@@ -1096,6 +1126,13 @@
                             <h4>Location</h4>
                             <p>New Delhi, Delhi, India</p>
                         </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-kaggle"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
 
@@ -1207,59 +1244,6 @@
 
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
-        });
-
-        // Skills Chart
-        const ctx = document.getElementById('skillsChart').getContext('2d');
-        const skillsChart = new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: ['Deep Learning', 'Generative AI', 'LLM Integration', 'Signal Processing', 'Computer Vision', 'Web Deployment'],
-                datasets: [{
-                    label: 'Skill Proficiency',
-                    data: [95, 90, 85, 80, 75, 85],
-                    backgroundColor: 'rgba(99, 102, 241, 0.2)',
-                    borderColor: 'rgba(99, 102, 241, 1)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(99, 102, 241, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(99, 102, 241, 1)'
-                }]
-            },
-            options: {
-                scales: {
-                    r: {
-                        angleLines: {
-                            display: true,
-                            color: 'rgba(100, 116, 139, 0.2)'
-                        },
-                        grid: {
-                            color: 'rgba(100, 116, 139, 0.2)'
-                        },
-                        pointLabels: {
-                            font: {
-                                size: 12,
-                                family: "'Inter', sans-serif"
-                            },
-                            color: 'var(--text)'
-                        },
-                        suggestedMin: 0,
-                        suggestedMax: 100
-                    }
-                },
-                plugins: {
-                    legend: {
-                        labels: {
-                            font: {
-                                size: 14,
-                                family: "'Inter', sans-serif"
-                            },
-                            color: 'var(--text)'
-                        }
-                    }
-                }
-            }
         });
 
         // Form submission
