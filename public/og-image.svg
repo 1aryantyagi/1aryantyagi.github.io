@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="280" text-anchor="middle" fill="#22d3ee" font-family="system-ui,sans-serif" font-size="28" font-weight="600">Aryan Tyagi</text>
+  <text x="600" y="340" text-anchor="middle" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="48" font-weight="700">AI Engineer · LLM Engineer</text>
+  <text x="600" y="400" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="22">Multi-agent systems · RAG · Production ML</text>
+</svg>

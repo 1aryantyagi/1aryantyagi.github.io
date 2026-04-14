@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  @apply min-h-screen bg-slate-950 text-slate-200 antialiased;
+}
+
+::selection {
+  @apply bg-neon-cyan/30 text-white;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
