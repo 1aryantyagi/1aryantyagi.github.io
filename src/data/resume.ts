@@ -300,17 +300,30 @@ export const aiSystemBlocks: AISystemBlock[] = [
   },
 ];
 
-export const education = {
-  school: "University School of Automation and Robotics, GGSIPU Delhi",
-  degree: "B.Tech in Artificial Intelligence and Machine Learning",
-  end: "July 2025",
-  coursework: [
-    "Machine learning",
-    "Software engineering",
-    "Data structures & algorithms",
-    "Databases",
-  ],
-};
+export const education: {
+  school: string;
+  degree: string;
+  end: string;
+  coursework: string[];
+}[] = [
+  {
+    school: "RWTH Aachen University",
+    degree: "MSc in Data Science",
+    end: "Ongoing",
+    coursework: [],
+  },
+  {
+    school: "University School of Automation and Robotics, GGSIPU Delhi",
+    degree: "B.Tech in Artificial Intelligence and Machine Learning",
+    end: "July 2025",
+    coursework: [
+      "Machine learning",
+      "Software engineering",
+      "Data structures & algorithms",
+      "Databases",
+    ],
+  },
+];
 
 /** Manual pin / priority for GitHub repo cards (by repo name) */
 export const githubRepoPriority: Record<string, number> = {

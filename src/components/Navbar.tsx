@@ -6,11 +6,11 @@ import { useSound } from "../hooks/useSound";
 const links = [
   { href: "#hero", label: "Home" },
   { href: "#systems", label: "AI Systems" },
+  { href: "#education", label: "Education" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#github", label: "GitHub" },
   { href: "#skills", label: "Skills" },
-  { href: "#education", label: "Education" },
   { href: "#cases", label: "Case Studies" },
   { href: "#contact", label: "Contact" },
 ];

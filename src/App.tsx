@@ -51,13 +51,13 @@ export default function App() {
       <main className="relative min-h-screen">
         <Hero soundOn={soundOn} />
         <AISystemsGrid />
+        <EducationSection />
         <ExperienceTimeline soundOn={soundOn} />
         <ProjectShowcase soundOn={soundOn} />
         <Suspense fallback={<GitHubFallback />}>
           <GitHubSection />
         </Suspense>
         <SkillsVisualization />
-        <EducationSection />
         <CaseStudies />
         <Footer />
       </main>

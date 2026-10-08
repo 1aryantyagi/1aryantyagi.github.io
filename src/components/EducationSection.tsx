@@ -16,11 +16,19 @@ export function EducationSection() {
           <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-neon-cyan">
             Education
           </h2>
-          <p className="mt-2 text-xl font-semibold text-white">{education.degree}</p>
-          <p className="mt-1 text-sm text-slate-400">{education.school} · {education.end}</p>
-          <p className="mt-4 text-sm text-slate-300">
-            Selected coursework: {education.coursework.join(", ")}.
-          </p>
+          <div className="mt-2 divide-y divide-white/10">
+            {education.map((e) => (
+              <div key={e.degree} className="py-4 first:pt-0 last:pb-0">
+                <p className="text-xl font-semibold text-white">{e.degree}</p>
+                <p className="mt-1 text-sm text-slate-400">{e.school} · {e.end}</p>
+                {e.coursework.length > 0 && (
+                  <p className="mt-3 text-sm text-slate-300">
+                    Selected coursework: {e.coursework.join(", ")}.
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
