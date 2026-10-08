@@ -307,13 +307,13 @@ export const education: {
   coursework: string[];
 }[] = [
   {
-    school: "RWTH Aachen University",
+    school: "RWTH Aachen University, Germany",
     degree: "MSc in Data Science",
     end: "Ongoing",
     coursework: [],
   },
   {
-    school: "University School of Automation and Robotics, GGSIPU Delhi",
+    school: "GGSIPU, New Delhi, India",
     degree: "B.Tech in Artificial Intelligence and Machine Learning",
     end: "July 2025",
     coursework: [

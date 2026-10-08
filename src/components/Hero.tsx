@@ -30,6 +30,9 @@ export function Hero({ soundOn }: Props) {
         <div className="mx-auto mt-8 flex min-h-[2.5rem] max-w-2xl items-center justify-center font-mono text-sm text-neon-violet sm:text-base">
           <TypingSkills reduced={reduced} />
         </div>
+        <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-400 sm:text-base">
+          Currently pursuing a master&apos;s at RWTH Aachen University, Germany.
+        </p>
         <motion.div
           initial={reduced ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
