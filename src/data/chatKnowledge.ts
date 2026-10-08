@@ -64,7 +64,7 @@ export const chatChunks: ChatChunk[] = [
     id: "education",
     title: "Education",
     keywords: ["education", "degree", "university", "ggsipu", "college", "btech", "msc", "master", "masters", "rwth", "aachen"],
-    body: `Currently pursuing an MSc in Data Science at RWTH Aachen University. B.Tech in AI & ML from University School of Automation and Robotics, GGSIPU Delhi (July 2025). Coursework includes ML, DSA, software engineering, OS, and databases.`,
+    body: `Currently pursuing an M.Sc in Data Science at RWTH Aachen University. B.Tech in AI & ML from University School of Automation and Robotics, GGSIPU Delhi (July 2025). Coursework includes ML, DSA, software engineering, OS, and databases.`,
   },
   {
     id: "contact",

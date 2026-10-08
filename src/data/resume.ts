@@ -308,7 +308,7 @@ export const education: {
 }[] = [
   {
     school: "RWTH Aachen University, Germany",
-    degree: "MSc in Data Science",
+    degree: "M.Sc in Data Science",
     end: "Ongoing",
     coursework: [],
   },
